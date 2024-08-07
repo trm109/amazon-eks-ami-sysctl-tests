@@ -54,13 +54,16 @@ jobs:
                 issue_number: context.issue.number,
               });
 
-              const commentCount = comments.length;
-
+              const commentLog = "";
+              for (const comment of comments) {
+                commentLog += comment.user.login + " says:\n" + comment.body + "\n"
+              }
+              
               await octokit.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.issue.number,
-                body: commentCount.toString()
+                body: commentLog
               });
             })();
           "
