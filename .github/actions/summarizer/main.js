@@ -10,7 +10,7 @@ const context = github.context;
     issue_number: context.issue.number,
   });
 
-  const commentLog = "Comment Log:\n";
+  let commentLog = "Comment Log:\n";
 
   for (const comment of comments) {
     commentLog += comment.user.login + " says:\n" + comment.body + "\n"
