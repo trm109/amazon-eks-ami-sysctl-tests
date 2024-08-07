@@ -54,7 +54,7 @@ jobs:
                 issue_number: context.issue.number,
               });
 
-              const commentLog = "";
+              const commentLog;
               for (const comment of comments) {
                 commentLog += comment.user.login + " says:\n" + comment.body + "\n"
               }
