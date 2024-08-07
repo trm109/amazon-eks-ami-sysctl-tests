@@ -13,7 +13,12 @@ const context = github.context;
   let commentLog = "Comment Log:\n";
 
   for (const comment of comments) {
-    commentLog += `${comment.user.login} says:\n"${comment.body}"`
+    if(
+      (comment.user.login != "github-actions[bot]") && 
+      (!comment.body.startsWith("/"))
+    ){
+      commentLog += `${comment.user.login} says:\n"${comment.body}"`
+    }
   }
 
   await octokit.rest.issues.createComment({
