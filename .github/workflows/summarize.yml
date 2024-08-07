@@ -12,7 +12,7 @@ on:
 jobs:
   # This workflow contains a single job called "greet"
   summarize:
-    if: contains(github.event.comment.body, '/summarize')
+    if: contains(github.event.comment.body, '/test')
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -21,3 +21,41 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.html_url }}
+  echo-comments:
+    if: contains(github.event.comment.body, '/summarize')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install @actions/github@5.0.0
+
+      - name: Fetch and echo comments
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node -e "
+            const github = require('@actions/github');
+            const token = process.env.GITHUB_TOKEN;
+            const octokit = new github.getOctokit(token);
+            const context = github.context;
+
+            (async () => {
+              const { data: comments } = await octokit.rest.issues.listComments({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+              });
+
+              comments.forEach(comment => {
+                console.log(comment.body);
+              });
+            })();
+          "
