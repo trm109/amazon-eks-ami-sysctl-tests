@@ -29,8 +29,9 @@ jobs:
         with:
           node-version: '14'
         # Install github actions lib
-      - name: Install dependencies
+      - name: Install github actions lib
         run: npm install @actions/github@5.0.0
+      - name: Install core actions lib
         run: npm install @actions/core
         # Get AWS Credentials
       - name: configure aws credentials
