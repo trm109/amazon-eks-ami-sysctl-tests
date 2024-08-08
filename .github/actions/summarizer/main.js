@@ -53,9 +53,10 @@ const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-be
   try {
     const response = await client.send(command);
 
-
     const decoder = new TextDecoder();
     const responseBody = decoder.decode(response.body);
+    console.log(`Raw response:\n${JSON.stringify(response)}`)
+    console.log(`decoded response:\n${JSON.stringify(responseBody)}`)
     //const decodedResponseBody = new TextDecoder().decode(apiResponse.body);
     //const responseBody = JSON.parse(decodedResponseBody);
 
