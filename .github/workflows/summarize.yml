@@ -10,17 +10,11 @@ on:
 
 permissions:
   id-token: write # This is required for requesting the JWT
+
 env:
   AWS_REGION : "us-west-2"
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-    if: contains(github.event.comment.body, '/test')
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      - run: gh issue comment $ISSUE --body "Testing"
   summarize:
     if: contains(github.event.comment.body, '/summarize')
     runs-on: ubuntu-latest
