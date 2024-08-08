@@ -8,36 +8,47 @@ on:
   issue_comment:
     types: [created]
 
+permissions:
+  id-token: write # This is required for requesting the JWT
+env:
+  AWS_REGION : "us-west-2"
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "greet"
-  summarize:
     if: contains(github.event.comment.body, '/test')
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - run: gh issue comment $ISSUE --body "Testing"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE: ${{ github.event.issue.html_url }}
-  echo-comments:
+  summarize:
     if: contains(github.event.comment.body, '/summarize')
     runs-on: ubuntu-latest
 
     steps:
+        # Checkout the repo
       - name: Checkout repository
         uses: actions/checkout@v2
-
+        # Get Nodejs lib
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-
+        # Install github actions lib
       - name: Install dependencies
         run: npm install @actions/github@5.0.0
-
+        run: npm install @actions/core
+        # Get AWS Credentials
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.BEDROCK_ACTION_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+          role-session-name: GITHUB_ACTION
+          #role-session-name: samplerolesession
+        # 
       - name: Fetch and echo comments
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MODEL_ID    : "meta.llama3-1-70b-instruct-v1:0"
         run: node .github/actions/summarizer/main.js
