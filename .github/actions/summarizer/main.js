@@ -60,6 +60,6 @@ const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-be
     owner: context.repo.owner,
     repo: context.repo.repo,
     issue_number: context.issue.number,
-    body: responseBody.completions[0].data.text,
+    body: responseBody,
   });
 })();
