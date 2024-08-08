@@ -3,10 +3,7 @@ const core    = require('@actions/core');
 const token   = process.env.GITHUB_TOKEN;
 const octokit = new github.getOctokit(token);
 const context = github.context;
-import {
-  BedrockRuntimeClient,
-  InvokeModelCommand,
-} from "@aws-sdk/client-bedrock-runtime";
+const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-bedrock-runtime");
 
 (async () => {
   const issueContext = {
