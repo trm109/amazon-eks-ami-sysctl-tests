@@ -33,6 +33,8 @@ jobs:
         run: npm install @actions/github@5.0.0
       - name: Install core actions lib
         run: npm install @actions/core
+      - name: Install aws bedrock lib
+        run: npm install @aws-sdk/client-bedrock-runtime
         # Get AWS Credentials
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4
