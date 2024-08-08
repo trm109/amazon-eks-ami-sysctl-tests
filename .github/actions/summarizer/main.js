@@ -55,18 +55,18 @@ const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-be
 
     const decoder = new TextDecoder();
     const responseBody = decoder.decode(response.body);
-    console.log(`Raw response:\n${JSON.stringify(response)}`)
-    console.log(`decoded response:\n${JSON.stringify(responseBody)}`)
-    console.log(`parsed response:\n${JSON.parse(responseBody).generation}`)
-    //const decodedResponseBody = new TextDecoder().decode(apiResponse.body);
-    //const responseBody = JSON.parse(decodedResponseBody);
+    const generation = JSON.parse(responseBody).generation;
+
+    console.log(`Raw response:\n${JSON.stringify(response)}`);
+    console.log(`parsed response:\n${JSON.parse(responseBody).generation}`);
 
     await octokit.rest.issues.createComment({
       owner: context.repo.owner,
       repo: context.repo.repo,
       issue_number: context.issue.number,
-      body: responseBody,
+      body: generation,
     });
+    console.log("Finished!");
   } catch (error) {
     console.log(error)
     throw error;
