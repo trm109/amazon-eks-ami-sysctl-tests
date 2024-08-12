@@ -37,9 +37,11 @@ const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-be
   const client = new BedrockRuntimeClient({ region: process.env.AWS_REGION });
 
   const prompt = `
-    Give me a short summary of this GitHub Issue reply chain. Include details on what the issue is, and what was the conclusion. The full comment history is below:
+    Human: Give me a short summary of this GitHub Issue reply chain. Include details on what the issue is, and what was the conclusion. The full comment history is below:
     
     ${commentLog}
+
+    Assistant:
   `;
 
   const payload = {
