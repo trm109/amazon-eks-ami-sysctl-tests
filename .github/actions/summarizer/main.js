@@ -41,11 +41,23 @@ const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-be
     \n\nAssistant:
   `;
 
+  const messages = [
+    {
+      role: "user",
+      content: []
+    }
+  ];
+  messages[0].content.push({
+    type: "text",
+    text: `
+      Human: ${prompt}
+      Assistant:
+    `
+  });
   const payload = {
-    prompt,
-    temperature: 0.5,
-    top_p: 0.9,
-    max_tokens_to_sample: 32768
+    anthropic_version: "bedrock-2023-05-31",
+    max_tokens: 16384,
+    messages: messages
   };
 
   const command = new InvokeModelCommand({
