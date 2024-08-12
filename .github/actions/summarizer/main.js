@@ -6,10 +6,15 @@ const context = github.context;
 const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-bedrock-runtime");
 
 (async () => {
+  ///const issueContext = {
+  ///  owner: context.repo.owner,
+  ///  repo: context.repo.repo,
+  ///  issue_number: context.issue.number,
+  ///};
   const issueContext = {
-    owner: context.repo.owner,
-    repo: context.repo.repo,
-    issue_number: context.issue.number,
+    owner: "awslabs",
+    repo: "amazon-eks-ami",
+    issue_number: 1751,
   };
 
   const { data: issue } = await octokit.rest.issues.get(issueContext);
