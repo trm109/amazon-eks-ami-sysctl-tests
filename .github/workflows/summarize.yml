@@ -50,5 +50,5 @@ jobs:
       - name: Fetch and echo comments
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MODEL_ID    : "meta.llama3-1-405b-instruct-v1:0"
+          MODEL_ID    : "anthropic.claude-3-5-sonnet-20240620-v1:0"
         run: node .github/actions/summarizer/main.js
