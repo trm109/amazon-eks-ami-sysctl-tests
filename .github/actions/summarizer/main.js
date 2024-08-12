@@ -44,7 +44,6 @@ const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-be
 
   const payload = {
     prompt,
-    max_gen_len: 512,
     temperature: 0.5,
     top_p: 0.9
   };
