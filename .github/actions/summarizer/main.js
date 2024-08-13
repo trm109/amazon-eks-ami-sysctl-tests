@@ -6,16 +6,17 @@ const context = github.context;
 const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-bedrock-runtime");
 
 (async () => {
-  ///const issueContext = {
-  ///  owner: context.repo.owner,
-  ///  repo: context.repo.repo,
-  ///  issue_number: context.issue.number,
-  ///};
   const issueContext = {
-    owner: "awslabs",
-    repo: "amazon-eks-ami",
-    issue_number: 1751,
+    owner: context.repo.owner,
+    repo: context.repo.repo,
+    issue_number: context.issue.number,
   };
+  // Testing issue:
+  //const issueContext = {
+  //  owner: "awslabs",
+  //  repo: "amazon-eks-ami",
+  //  issue_number: 1751,
+  //};
 
   const { data: issue } = await octokit.rest.issues.get(issueContext);
 
@@ -56,7 +57,7 @@ const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-be
   });
   const payload = {
     anthropic_version: "bedrock-2023-05-31",
-    max_tokens: 16384,
+    max_tokens: 16384, // Adjust this if issue comment chain is long.
     messages: messages
   };
 
