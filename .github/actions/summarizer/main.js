@@ -15,7 +15,7 @@ const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-be
   const issueContext = {
     owner: "awslabs",
     repo: "amazon-eks-ami",
-    issue_number: 1678,
+    issue_number: 1002,
   };
 
   const { data: issue } = await octokit.rest.issues.get(issueContext);
