@@ -117,8 +117,6 @@ function buildCommand(uuid, payload, name, args) {
             return new EchoCommand(uuid, payload, args);
         case "ci":
             return new CICommand(uuid, payload, args);
-        case "summarize":
-            return new SummarizeCommand(uuid, payload, args);
         default:
             console.log(`Unknown command: ${name}`);
             return null;
@@ -146,22 +144,6 @@ class EchoCommand {
 
     run(author) {
         return `@${author} *${this.phrase}*`;
-    }
-}
-
-class SummarizeCommand {
-    constructor(uuid, payload, args) {
-        this.repository_owner = payload.repository.owner.login;
-        this.repository_name = payload.repository.name;
-        this.issue_number = payload.issue.number;
-    }
-
-    async run(author, github) {
-        console.log(`SUMMARIZE DEBUG:`);
-        console.log(`ARGS: ${JSON.stringify(args)}`);
-        console.log(`PAYLOAD: ${JSON.stringify(payload)}`);
-        console.log(`AUTHOR: ${JSON.stringify(author)}`);
-        console.log(`GITHUB: ${JSON.stringify(github)}`);
     }
 }
 

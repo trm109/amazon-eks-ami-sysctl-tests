@@ -6,16 +6,14 @@ const context = github.context;
 const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-bedrock-runtime");
 
 (async () => {
-  //const issueContext = {
-  //  owner: context.repo.owner,
-  //  repo: context.repo.repo,
-  //  issue_number: context.issue.number,
-  //};
-  // Testing issue:
-  const issueContext = {
-    owner: "awslabs",
-    repo: "amazon-eks-ami",
-    issue_number: 1535,
+  // Split the command into parts
+  const parts = command.trim().split(' ');
+
+  // Initialize the result object with default values
+  let issueContext = {
+    owner: parts.length == 4 ? parts[1] : context.repo.owner,
+    repo: parts.length == 4 ? parts[2] : context.repo.repo,
+    issue_number: parts.length == 4 ? parts[3] : ( parts.length == 2 ? parts[1] : context.issue.number),
   };
 
   const { data: issue } = await octokit.rest.issues.get(issueContext);
