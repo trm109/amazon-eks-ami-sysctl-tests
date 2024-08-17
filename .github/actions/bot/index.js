@@ -14,10 +14,10 @@ async function bot(core, github, context, uuid) {
     // go to the org's member page, find yourself, and set the visibility to public
     const author = payload.comment.user.login;
     const authorized = ["OWNER", "MEMBER"].includes(payload.comment.author_association);
-    if (!authorized) {
-        console.log(`Comment author is not authorized: ${author}`);
-        return;
-    }
+    //if (!authorized) { TODO undo this
+    //    console.log(`Comment author is not authorized: ${author}`);
+    //    return;
+    //}
     console.log(`Comment author is authorized: ${author}`);
 
     let commands;
@@ -117,6 +117,8 @@ function buildCommand(uuid, payload, name, args) {
             return new EchoCommand(uuid, payload, args);
         case "ci":
             return new CICommand(uuid, payload, args);
+        case "summarize":
+            return new SummarizeCommand(uuid, payload, args);
         default:
             console.log(`Unknown command: ${name}`);
             return null;
@@ -144,6 +146,22 @@ class EchoCommand {
 
     run(author) {
         return `@${author} *${this.phrase}*`;
+    }
+}
+
+class SummarizeCommand {
+    constructor(uuid, payload, args) {
+        this.repository_owner = payload.repository.owner.login;
+        this.repository_name = payload.repository.name;
+        this.issue_number = payload.issue.number;
+    }
+
+    async run(author, github) {
+        console.log(`SUMMARIZE DEBUG:`);
+        console.log(`ARGS: ${JSON.stringify(args)}`);
+        console.log(`PAYLOAD: ${JSON.stringify(payload)}`);
+        console.log(`AUTHOR: ${JSON.stringify(author)}`);
+        console.log(`GITHUB: ${JSON.stringify(github)}`);
     }
 }
 
