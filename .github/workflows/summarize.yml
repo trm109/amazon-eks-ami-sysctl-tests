@@ -45,10 +45,10 @@ jobs:
           role-to-assume: ${{ secrets.BEDROCK_ACTION_ROLE_ARN }}
           aws-region: ${{ env.AWS_REGION }}
           role-session-name: GITHUB_ACTION
-          #role-session-name: samplerolesession
-        # 
-      - name: Fetch and echo comments
+        # invoke Bedrock to summarize the issue
+      - name: Summarize issues
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MODEL_ID    : "anthropic.claude-3-5-sonnet-20240620-v1:0"
+          COMMENT_BODY: ${{ github.event.comment.body }}
         run: node .github/actions/summarizer/index.js

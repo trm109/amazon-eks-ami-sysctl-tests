@@ -7,7 +7,7 @@ const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-be
 
 (async () => {
   // Split the command into parts
-  const parts = github.event.comment.body.trim().split(' ');
+  const parts = process.env.COMMENT_BODY.trim().split(' ');
 
   // Initialize the result object with default values
   let issueContext = {
