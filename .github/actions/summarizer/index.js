@@ -67,6 +67,8 @@ const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-be
     modelId: process.env.MODEL_ID,
   });
 
+  console.log("Prompting LLM with:\n" + JSON.stringify(payload));
+
   try {
     const response = await client.send(command);
 
