@@ -16,6 +16,8 @@ const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-be
     issue_number: parts.length == 4 ? parts[3] : ( parts.length == 2 ? parts[1] : context.issue.number),
   };
 
+  console.log("Issue Context:\n" + JSON.stringify(issueContext));
+
   const { data: issue } = await octokit.rest.issues.get(issueContext);
 
   const { data: comments } = await octokit.rest.issues.listComments(issueContext);
