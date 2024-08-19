@@ -6,6 +6,7 @@ const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-be
 
 (async () => {
   const context = github.context;
+  const payload = context.payload;
   const author = payload.comment.user.login;
   const authorized = ["OWNER", "MEMBER"].includes(payload.comment.author_association);
   if (!authorized) {
