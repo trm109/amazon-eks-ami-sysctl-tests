@@ -60,7 +60,7 @@ const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-be
       Assistant:
     `
   });
-  const payload = {
+  const modelInput = {
     anthropic_version: "bedrock-2023-05-31",
     max_tokens: 16384, // Adjust this if issue comment chain is long.
     messages: messages
@@ -68,11 +68,11 @@ const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-be
 
   const command = new InvokeModelCommand({
     contentType: "application/json",
-    body: JSON.stringify(payload),
+    body: JSON.stringify(modelInput),
     modelId: process.env.MODEL_ID,
   });
 
-  console.log("Prompting LLM with:\n" + JSON.stringify(payload));
+  console.log("Prompting LLM with:\n" + JSON.stringify(modelInput));
 
   try {
     const response = await client.send(command);
