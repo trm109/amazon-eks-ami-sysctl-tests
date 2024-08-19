@@ -2,11 +2,10 @@ const github  = require('@actions/github');
 const core    = require('@actions/core');
 const token   = process.env.GITHUB_TOKEN;
 const octokit = new github.getOctokit(token);
-const context = github.context;
 const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-bedrock-runtime");
 
 (async () => {
-
+  const context = github.context;
   const author = payload.comment.user.login;
   const authorized = ["OWNER", "MEMBER"].includes(payload.comment.author_association);
   if (!authorized) {
