@@ -149,18 +149,337 @@ class EchoCommand {
     }
 }
 
+// payload
+/*
+{
+  "action": "created",
+  "comment": {
+    "author_association": "OWNER",
+    "body": "/summarize abc=1 xyz 120",
+    "created_at": "2024-08-26T15:08:27Z",
+    "html_url": "https://github.com/trm109/amazon-eks-ami-sysctl-tests/issues/6#issuecomment-2310446798",
+    "id": 2310446798,
+    "issue_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/issues/6",
+    "node_id": "IC_kwDOMVN46c6Jtp7O",
+    "performed_via_github_app": null,
+    "reactions": {
+      "+1": 0,
+      "-1": 0,
+      "confused": 0,
+      "eyes": 0,
+      "heart": 0,
+      "hooray": 0,
+      "laugh": 0,
+      "rocket": 0,
+      "total_count": 0,
+      "url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/issues/comments/2310446798/reactions"
+    },
+    "updated_at": "2024-08-26T15:08:27Z",
+    "url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/issues/comments/2310446798",
+    "user": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/99270795?v=4",
+      "events_url": "https://api.github.com/users/trm109/events{/privacy}",
+      "followers_url": "https://api.github.com/users/trm109/followers",
+      "following_url": "https://api.github.com/users/trm109/following{/other_user}",
+      "gists_url": "https://api.github.com/users/trm109/gists{/gist_id}",
+      "gravatar_id": "",
+      "html_url": "https://github.com/trm109",
+      "id": 99270795,
+      "login": "trm109",
+      "node_id": "U_kgDOBerAiw",
+      "organizations_url": "https://api.github.com/users/trm109/orgs",
+      "received_events_url": "https://api.github.com/users/trm109/received_events",
+      "repos_url": "https://api.github.com/users/trm109/repos",
+      "site_admin": false,
+      "starred_url": "https://api.github.com/users/trm109/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/trm109/subscriptions",
+      "type": "User",
+      "url": "https://api.github.com/users/trm109"
+    }
+  },
+  "issue": {
+    "active_lock_reason": null,
+    "assignee": null,
+    "assignees": [],
+    "author_association": "OWNER",
+    "body": "<!-- Please use this template while reporting a bug and provide as much info as possible. Please also search for existing open and closed issues that may answer your question. Thanks!-->\r\n\r\n**What happened**:\r\n\r\n**What you expected to happen**:\r\n\r\n**How to reproduce it (as minimally and precisely as possible)**:\r\n\r\n**Anything else we need to know?**:\r\n\r\n**Environment**:\r\n- AWS Region:\r\n- Instance Type(s):\r\n- EKS Platform version (use `aws eks describe-cluster --name <name> --query cluster.platformVersion`):\r\n- Kubernetes version (use `aws eks describe-cluster --name <name> --query cluster.version`):\r\n- AMI Version:\r\n- Kernel (e.g. `uname -a`):\r\n- Release information (run `cat /etc/eks/release` on a node):\r\n<!-- Put release info in the triple backticks below-->\r\n```\r\n```\r\n\r\n<!-- If this is a security issue, please do not discuss on GitHub. Please report any suspected or confirmed security issues to AWS Security https://aws.amazon.com/security/vulnerability-reporting/ -->\r\n",
+    "closed_at": null,
+    "comments": 6,
+    "comments_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/issues/6/comments",
+    "created_at": "2024-08-19T18:58:23Z",
+    "events_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/issues/6/events",
+    "html_url": "https://github.com/trm109/amazon-eks-ami-sysctl-tests/issues/6",
+    "id": 2473996511,
+    "labels": [],
+    "labels_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/issues/6/labels{/name}",
+    "locked": false,
+    "milestone": null,
+    "node_id": "I_kwDOMVN46c6TdjDf",
+    "number": 6,
+    "performed_via_github_app": null,
+    "reactions": {
+      "+1": 0,
+      "-1": 0,
+      "confused": 0,
+      "eyes": 0,
+      "heart": 0,
+      "hooray": 0,
+      "laugh": 0,
+      "rocket": 0,
+      "total_count": 0,
+      "url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/issues/6/reactions"
+    },
+    "repository_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests",
+    "state": "open",
+    "state_reason": null,
+    "timeline_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/issues/6/timeline",
+    "title": "Testing!",
+    "updated_at": "2024-08-26T15:08:28Z",
+    "url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/issues/6",
+    "user": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/99270795?v=4",
+      "events_url": "https://api.github.com/users/trm109/events{/privacy}",
+      "followers_url": "https://api.github.com/users/trm109/followers",
+      "following_url": "https://api.github.com/users/trm109/following{/other_user}",
+      "gists_url": "https://api.github.com/users/trm109/gists{/gist_id}",
+      "gravatar_id": "",
+      "html_url": "https://github.com/trm109",
+      "id": 99270795,
+      "login": "trm109",
+      "node_id": "U_kgDOBerAiw",
+      "organizations_url": "https://api.github.com/users/trm109/orgs",
+      "received_events_url": "https://api.github.com/users/trm109/received_events",
+      "repos_url": "https://api.github.com/users/trm109/repos",
+      "site_admin": false,
+      "starred_url": "https://api.github.com/users/trm109/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/trm109/subscriptions",
+      "type": "User",
+      "url": "https://api.github.com/users/trm109"
+    }
+  },
+  "repository": {
+    "allow_forking": true,
+    "archive_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/{archive_format}{/ref}",
+    "archived": false,
+    "assignees_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/assignees{/user}",
+    "blobs_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/git/blobs{/sha}",
+    "branches_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/branches{/branch}",
+    "clone_url": "https://github.com/trm109/amazon-eks-ami-sysctl-tests.git",
+    "collaborators_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/collaborators{/collaborator}",
+    "comments_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/comments{/number}",
+    "commits_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/commits{/sha}",
+    "compare_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/compare/{base}...{head}",
+    "contents_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/contents/{+path}",
+    "contributors_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/contributors",
+    "created_at": "2024-07-11T22:10:38Z",
+    "default_branch": "main",
+    "deployments_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/deployments",
+    "description": "Packer configuration for building a custom EKS AMI",
+    "disabled": false,
+    "downloads_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/downloads",
+    "events_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/events",
+    "fork": true,
+    "forks": 0,
+    "forks_count": 0,
+    "forks_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/forks",
+    "full_name": "trm109/amazon-eks-ami-sysctl-tests",
+    "git_commits_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/git/commits{/sha}",
+    "git_refs_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/git/refs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/git/tags{/sha}",
+    "git_url": "git://github.com/trm109/amazon-eks-ami-sysctl-tests.git",
+    "has_discussions": false,
+    "has_downloads": true,
+    "has_issues": true,
+    "has_pages": false,
+    "has_projects": true,
+    "has_wiki": false,
+    "homepage": "https://awslabs.github.io/amazon-eks-ami/",
+    "hooks_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/hooks",
+    "html_url": "https://github.com/trm109/amazon-eks-ami-sysctl-tests",
+    "id": 827554025,
+    "is_template": false,
+    "issue_comment_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/issues/comments{/number}",
+    "issue_events_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/issues/events{/number}",
+    "issues_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/issues{/number}",
+    "keys_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/keys{/key_id}",
+    "labels_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/labels{/name}",
+    "language": "Shell",
+    "languages_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/languages",
+    "license": {
+      "key": "mit-0",
+      "name": "MIT No Attribution",
+      "node_id": "MDc6TGljZW5zZTQx",
+      "spdx_id": "MIT-0",
+      "url": "https://api.github.com/licenses/mit-0"
+    },
+    "merges_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/merges",
+    "milestones_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/milestones{/number}",
+    "mirror_url": null,
+    "name": "amazon-eks-ami-sysctl-tests",
+    "node_id": "R_kgDOMVN46Q",
+    "notifications_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/notifications{?since,all,participating}",
+    "open_issues": 1,
+    "open_issues_count": 1,
+    "owner": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/99270795?v=4",
+      "events_url": "https://api.github.com/users/trm109/events{/privacy}",
+      "followers_url": "https://api.github.com/users/trm109/followers",
+      "following_url": "https://api.github.com/users/trm109/following{/other_user}",
+      "gists_url": "https://api.github.com/users/trm109/gists{/gist_id}",
+      "gravatar_id": "",
+      "html_url": "https://github.com/trm109",
+      "id": 99270795,
+      "login": "trm109",
+      "node_id": "U_kgDOBerAiw",
+      "organizations_url": "https://api.github.com/users/trm109/orgs",
+      "received_events_url": "https://api.github.com/users/trm109/received_events",
+      "repos_url": "https://api.github.com/users/trm109/repos",
+      "site_admin": false,
+      "starred_url": "https://api.github.com/users/trm109/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/trm109/subscriptions",
+      "type": "User",
+      "url": "https://api.github.com/users/trm109"
+    },
+    "private": false,
+    "pulls_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/pulls{/number}",
+    "pushed_at": "2024-08-26T15:07:38Z",
+    "releases_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/releases{/id}",
+    "size": 10426,
+    "ssh_url": "git@github.com:trm109/amazon-eks-ami-sysctl-tests.git",
+    "stargazers_count": 0,
+    "stargazers_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/stargazers",
+    "statuses_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/statuses/{sha}",
+    "subscribers_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/subscribers",
+    "subscription_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/subscription",
+    "svn_url": "https://github.com/trm109/amazon-eks-ami-sysctl-tests",
+    "tags_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/tags",
+    "teams_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/teams",
+    "topics": [],
+    "trees_url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests/git/trees{/sha}",
+    "updated_at": "2024-08-26T15:07:42Z",
+    "url": "https://api.github.com/repos/trm109/amazon-eks-ami-sysctl-tests",
+    "visibility": "public",
+    "watchers": 0,
+    "watchers_count": 0,
+    "web_commit_signoff_required": false
+  },
+  "sender": {
+    "avatar_url": "https://avatars.githubusercontent.com/u/99270795?v=4",
+    "events_url": "https://api.github.com/users/trm109/events{/privacy}",
+    "followers_url": "https://api.github.com/users/trm109/followers",
+    "following_url": "https://api.github.com/users/trm109/following{/other_user}",
+    "gists_url": "https://api.github.com/users/trm109/gists{/gist_id}",
+    "gravatar_id": "",
+    "html_url": "https://github.com/trm109",
+    "id": 99270795,
+    "login": "trm109",
+    "node_id": "U_kgDOBerAiw",
+    "organizations_url": "https://api.github.com/users/trm109/orgs",
+    "received_events_url": "https://api.github.com/users/trm109/received_events",
+    "repos_url": "https://api.github.com/users/trm109/repos",
+    "site_admin": false,
+    "starred_url": "https://api.github.com/users/trm109/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/trm109/subscriptions",
+    "type": "User",
+    "url": "https://api.github.com/users/trm109"
+  }
+}
+*/
+// args
+/*
+"abc=1 xyz 120"
+*/
 class SummarizeCommand {
     constructor(uuid, payload, args){ 
-        console.log("Constructor");
-        console.log(JSON.stringify(uuid));
-        console.log(JSON.stringify(payload));
-        console.log(JSON.stringify(args));
+        this.repository_owner = payload.repository.owner.login;
+        this.repository_name = payload.repository.name;
+        this.issue_number = payload.issue.number;
+        this.args = args;
     }
 
     async run(author, github) {
         console.log("Run!");
-        console.log(JSON.stringify(author));
+        //author "trm109"
         console.log(JSON.stringify(github));
+
+        const parts = this.args.trim().split(' ');
+
+        // Commands can take three forms:
+        // /summarize owner repo issue_no (length 4)
+        // /summarize issue_no (length 2) (defaults owner & repo to context based)
+        // /summarize (default) (defaults owner, repo, & issue_no to context based)
+        let issueContext = {
+            owner: parts.length == 4 ? parts[1] : this.repository_owner,
+            repo: parts.length == 4 ? parts[2] : this.repository_name,
+            issue_number: parts.length == 4 ? parts[3] : ( parts.length == 2 ? parts[1] : this.issue_number),
+        };
+
+        console.log("Issue Context:\n" + JSON.stringify(issueContext));
+
+        const { data: issue } = await octokit.rest.issues.get(issueContext);
+
+        const { data: comments } = await octokit.rest.issues.listComments(issueContext);
+
+        const commentLog = "Comment Log:\n" + 
+            `${issue.user.login} created the issue:\n ${issue.body}\n` + 
+            comments.filter(c => c.user.login != "github-actions[bot]")
+            .filter(c -> !c.body.startsWith("/"))
+            .map(c => `${c.user.login} says:\n "${c.body}"`)
+            .join('\n');
+
+        //const client = new BedrockRuntimeClient({ region: process.env.AWS_REGION });
+
+        // There can be a lot more prompt engineering done for the perfect summarizations, this one works really well however.
+        const prompt = `Give me a short summary of this GitHub Issue reply chain. Include details on what the issue is, and what was the conclusion. The full comment history is below: ${commentLog}`;
+
+        const content = [
+            {
+                type: "text",
+                text: `Human: ${prompt}\nAssistant:`
+            }
+        ];
+
+        const messages = [
+            {
+                role: "user",
+                content,
+            }
+        ];
+
+        const modelInput = {
+            anthropic_version: "bedrock-2023-05-31",
+            max_tokens: 16384, // Adjust this if issue comment chain is long.
+            messages: messages
+        };
+
+        const command = new InvokeModelCommand({
+            contentType: "application/json",
+            body: JSON.stringify(modelInput),
+            modelId: process.env.MODEL_ID,
+        });
+
+        console.log("Prompting LLM with:\n" + JSON.stringify(modelInput));
+
+        //try {
+        //    const response = await client.send(command);
+        //} catch (error) {
+        //    console.log("Failure: Unable to access Bedrock. Either invalid credentials or a service outage!");
+        //    throw error;
+        //}
+
+        //const responseBody = JSON.parse(new TextDecoder().decode(response.body));
+        //const generation = responseBody.content[0].text;
+
+        //console.log(`Raw response:\n${JSON.stringify(response)}`);
+        //console.log(`parsed response:\n${generation}`);
+
+        //await octokit.rest.issues.createComment({
+        //    owner: context.repo.owner,
+        //    repo: context.repo.repo,
+        //    issue_number: context.issue.number,
+        //    body: generation,
+        //});
+
     }
 }
 class CICommand {
