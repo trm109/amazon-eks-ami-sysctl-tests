@@ -416,9 +416,9 @@ class SummarizeCommand {
 
         console.log("Issue Context:\n" + JSON.stringify(issueContext));
 
-        const { data: issue } = await octokit.rest.issues.get(issueContext);
+        const { data: issue } = await github.rest.issues.get(issueContext);
 
-        const { data: comments } = await octokit.rest.issues.listComments(issueContext);
+        const { data: comments } = await github.rest.issues.listComments(issueContext);
 
         const commentLog = "Comment Log:\n" + 
             `${issue.user.login} created the issue:\n ${issue.body}\n` + 
