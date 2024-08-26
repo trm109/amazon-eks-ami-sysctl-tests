@@ -452,11 +452,11 @@ class SummarizeCommand {
             messages: messages
         };
 
-        const command = new InvokeModelCommand({
-            contentType: "application/json",
-            body: JSON.stringify(modelInput),
-            modelId: process.env.MODEL_ID,
-        });
+        //const command = new InvokeModelCommand({
+        //    contentType: "application/json",
+        //    body: JSON.stringify(modelInput),
+        //    modelId: process.env.MODEL_ID,
+        //});
 
         console.log("Prompting LLM with:\n" + JSON.stringify(modelInput));
 
