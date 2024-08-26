@@ -423,7 +423,7 @@ class SummarizeCommand {
         const commentLog = "Comment Log:\n" + 
             `${issue.user.login} created the issue:\n ${issue.body}\n` + 
             comments.filter(c => c.user.login != "github-actions[bot]")
-            .filter(c -> !c.body.startsWith("/"))
+            .filter(c => !c.body.startsWith("/"))
             .map(c => `${c.user.login} says:\n "${c.body}"`)
             .join('\n');
 
