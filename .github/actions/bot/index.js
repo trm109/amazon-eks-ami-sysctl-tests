@@ -170,9 +170,9 @@ class SummarizeCommand {
         // /summarize issue_no (length 2) (defaults owner & repo to context based)
         // /summarize (default) (defaults owner, repo, & issue_no to context based)
         let issueContext = {
-            owner: parts.length == 4 ? parts[1] : this.repository_owner,
-            repo: parts.length == 4 ? parts[2] : this.repository_name,
-            issue_number: parts.length == 4 ? parts[3] : ( parts.length == 2 ? parts[1] : this.issue_number),
+            owner: parts.length == 3 ? parts[1] : this.repository_owner,
+            repo: parts.length == 3 ? parts[2] : this.repository_name,
+            issue_number: parts.length == 3 ? parts[3] : ( parts.length == 1 ? parts[1] : this.issue_number),
         };
 
         console.log("Issue Context:\n" + JSON.stringify(issueContext));
