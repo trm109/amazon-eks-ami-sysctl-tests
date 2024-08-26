@@ -117,7 +117,7 @@ function buildCommand(uuid, payload, name, args) {
             return new EchoCommand(uuid, payload, args);
         case "ci":
             return new CICommand(uuid, payload, args);
-        case "summarize"
+        case "summarize":
             return new SummarizeCommand(uuid, payload, args);
         default:
             console.log(`Unknown command: ${name}`);
